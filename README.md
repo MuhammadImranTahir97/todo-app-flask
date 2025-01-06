@@ -57,6 +57,6 @@ Contributions are welcome! Please follow these steps:
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ```
-[MIT](https://choosealicense.com/licenses/mit/)
+https://choosealicense.com/licenses/mit/
 
 ```
