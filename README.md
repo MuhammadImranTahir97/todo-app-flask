@@ -41,7 +41,7 @@ npm start
 
 <img src="image-2.png" alt="alt text" width="500"/>
 
-<p>This above code contains the initialization of the database.</p>
+<p>This above code contains the initialization of the.</p>
 
 ## Contributing
 
@@ -56,8 +56,7 @@ Contributions are welcome! Please follow these steps:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-[MIT](https://choosealicense.com/licenses/mit/)
-
 ```
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ```
