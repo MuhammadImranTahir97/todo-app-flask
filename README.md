@@ -29,11 +29,19 @@ npm start
 
 ## Screenshots
 
-![alt text](image-1.png)
+## Screenshots
 
-![alt text](image.png)
+<img src="image-1.png" alt="alt text" width="500"/>
 
-![alt text](image-2.png)
+<p>This above figure contians the code for the main file, where the main initialize are done.</p>
+
+<img src="image.png" alt="alt text" width="500"/>
+
+<p>This above figure contians the code for the database file, where the main database columns are set and also there attributes and key values.</p>
+
+<img src="image-2.png" alt="alt text" width="500"/>
+
+<p>This above code contains the initialization of the database.</p>
 
 ## Contributing
 
