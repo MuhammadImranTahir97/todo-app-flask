@@ -1,33 +1,28 @@
-from flask import (
-    Flask,
-    render_template,
-    request,
-    session,
-    redirect,
-    Blueprint,
-    blueprints,
-)
-import json
+from flask import Flask, render_template, request, session, redirect, Blueprint
 from infrastructure.db import db
+from models.todos import Todo
+
+
+# Assuming Todo model is defined somewhere
+# from your_model_file import Todo
 
 crew_controller = Blueprint("crew_bp", __name__)
 
 
 @crew_controller.route("/", methods=["POST"])
 def create():
-    if request.method == "POST":
-        new_task = Todo(content=task_content)
+    task_content = request.form.get("content")  # Assuming form data has 'content' field
+    new_task = Todo(content=task_content)
 
-        try:
-            db.session.add(new_task)
-            db.session.commit()
-        except:
-            return "There was an issue adding your task"
+    try:
+        db.session.add(new_task)
+        db.session.commit()
+        return f"Task Created: {new_task}"
+    except:
+        return "There was an issue adding your task"
 
-    return f"Task Created : {new_task}"
 
-
-@crew_controller.route("/todos/<id>", methods=["DELETE"])
+@crew_controller.route("/todos/<int:id>", methods=["DELETE"])
 def delete(id):
     task_to_delete = Todo.query.get(id)
 
@@ -39,19 +34,23 @@ def delete(id):
         return "There was a problem deleting that task"
 
 
-@crew_controller.route("/todos/<id>", methods=["PATCH"])
+@crew_controller.route("/todos/<int:id>", methods=["PATCH"])
 def update(id):
     task = Todo.query.get(id)
+    if not task:
+        return "Task not found!"
 
-    if request.method == "POST":
-        Todo.content = task("input update task")
-        try:
-            db.session.commit()
-        except:
-            return "There was an issue updating your task"
+    task_content = request.form.get("content")  # Assuming form data has 'content' field
+    task.content = task_content
+
+    try:
+        db.session.commit()
+        return f"Task Updated: {task}"
+    except:
+        return "There was an issue updating your task"
 
 
-@crew_controller.route("/todos/<id>", methods=["GET"])
+@crew_controller.route("/todos/<int:id>", methods=["GET"])
 def get_todo(id):
     task = Todo.query.get(id)
     if not task:
