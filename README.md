@@ -29,10 +29,10 @@ npm start
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 ![alt text](image-1.png)
+
 ![alt text](image.png)
+
 ![alt text](image-2.png)
 
 ## Contributing
