@@ -25,7 +25,7 @@ To start the project, run:
 
 ```bash
 npm start
-
+```
 
 ## Screenshots
 
@@ -34,6 +34,7 @@ npm start
 ![alt text](image-1.png)
 ![alt text](image.png)
 ![alt text](image-2.png)
+
 ## Contributing
 
 Contributions are welcome! Please follow these steps:
@@ -48,4 +49,7 @@ Contributions are welcome! Please follow these steps:
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+```
+
 ```
