@@ -13,7 +13,7 @@ from infrastructure.db import db
 crew_controller = Blueprint("crew_bp", __name__)
 
 
-@crew_controller.route("/create", methods=["POST"])
+@crew_controller.route("/", methods=["POST"])
 def create():
     if request.method == "POST":
         new_task = Todo(content=task_content)
@@ -27,7 +27,7 @@ def create():
     return f"Task Created : {new_task}"
 
 
-@crew_controller.route("/delete/<id>")
+@crew_controller.route("/todos/<id>", methods=["DELETE"])
 def delete(id):
     task_to_delete = Todo.query.get(id)
 
@@ -39,7 +39,7 @@ def delete(id):
         return "There was a problem deleting that task"
 
 
-@crew_controller.route("/update/<id>", methods=["POST"])
+@crew_controller.route("/todos/<id>", methods=["PATCH"])
 def update(id):
     task = Todo.query.get(id)
 
@@ -51,7 +51,7 @@ def update(id):
             return "There was an issue updating your task"
 
 
-@crew_controller.route("/get-todo/<id>")
+@crew_controller.route("/todos/<id>", methods=["GET"])
 def get_todo(id):
     task = Todo.query.get(id)
     if not task:
@@ -59,7 +59,7 @@ def get_todo(id):
     return f"Task ID: {task.id}, Content: {task.content}, Completed: {task.completed}"
 
 
-@crew_controller.route("/get-todo-all")
+@crew_controller.route("/", methods=["GET"])
 def get_todo_all():
     tasks = Todo.query.all()
     return "<br>".join(
