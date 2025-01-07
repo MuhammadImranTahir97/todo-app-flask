@@ -1,9 +1,44 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="todo-container">
+    <h1>TODO LIST</h1>
+    <div class="todo-input-container">
+      <form action="/" method="POST">
+        <input type="text" id="todo-input" name="content" placeholder="Enter task" required>
+        <button id="add-task-btn" type="submit">+</button>
+      </form>      
+    </div>
 
-{% block head %}
+    <div class="filter-buttons">
+      <a href="{{ url_for('crew_bp.index', filter='all') }}">All</a>
+      <a href="{{ url_for('crew_bp.index', filter='completed') }}">Completed</a>
+      <a href="{{ url_for('crew_bp.index', filter='uncompleted') }}">Uncompleted</a>
+    </div>
 
-{% endblock %}
-
-{% block body %}
-<h1>Template</h1>
-{% endblock %}
+    <ul class="todo-list">
+      {% for task in tasks %}
+        <li class="todo-item">
+          <form action="{{ url_for('crew_bp.toggle_completed', id=task.id) }}" method="POST" style="display: inline;">
+            <input type="checkbox" name="completed" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+          </form>
+          <span>{{ task.content }}</span>
+          <div class="buttons">
+            <a href="/todos/edit/{{ task.id }}" class="edit-btn">&#9998;</a>
+            <form action="/todos/{{ task.id }}" method="POST" style="display: inline;">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="delete-btn">&#128465;</button>
+            </form>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #369945bb, #c4c77ccf);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.todo-container {
+  background: #ffffffba;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.todo-input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#todo-input {
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#add-task-btn {
+  padding: 10px;
+  background: #559956;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#add-task-btn:hover {
+  background: #45a049;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;  /* Increased padding */
+  border-bottom: 1px solid #ccc;
+}
+
+.todo-item span {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn {
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  color: #007bff;
+  background-color: #e0e0e0;
+}
+
+.edit-btn:active {
+  background-color: #d3d3d3;
+}
+
+.delete-btn {
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.delete-btn:hover {
+  color: #dc3545;
+  background-color: #f8d7da;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.todo-item input[type="checkbox"]:checked {
+  background-color: #4caf50;
+  border: 2px solid #4caf50;
+}
+
+.todo-item input[type="checkbox"]:checked::after {
+  content: '\2713';  /* Unicode for checkmark */
+  color: white;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+}
+
+#todo-input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.todo-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adds space between the input and the button */
+}
+
+@media (max-width: 600px) {
+  .todo-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  #todo-input, #add-task-btn {
+    width: 100%;
+    margin-bottom: 10px;  /* Add space between input and button */
+  }
+
+  #todo-input {
+    margin-right: 0;
+  }
+}
+
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.filter-buttons a:hover {
+  text-decoration: underline;
+}

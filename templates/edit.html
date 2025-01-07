@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Task</title>
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="todo-container">
+    <h1>Edit Task</h1>
+    <form action="{{ url_for('crew_bp.edit', id=task.id) }}" method="POST">
+        <div>
+            <label for="content">Task Content:</label>
+            <input type="text" id="content" name="content" value="{{ task.content }}" required>
+        </div>
+        <div>
+            <label for="completed">Completed:</label>
+            <form action="{{ url_for('crew_bp.toggle_completed', id=task.id) }}" method="POST" style="display: inline;">
+                <input type="checkbox" name="completed" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+            </form>
+            
+        </div>
+        <button type="submit">Update Task</button>
+    </form>
+    
+  </div>
+</body>
+</html>
