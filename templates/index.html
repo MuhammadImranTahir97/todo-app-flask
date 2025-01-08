@@ -7,6 +7,11 @@
   <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
 <body>
+  <!-- Logout button outside the todo container -->
+  <a href="{{ url_for('user_bp.logout') }}">
+    <button class="logout-btn">Logout</button>
+  </a>
+
   <div class="todo-container">
     <h1>TODO LIST</h1>
     <div class="todo-input-container">
